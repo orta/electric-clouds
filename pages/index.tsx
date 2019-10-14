@@ -18,7 +18,6 @@ const RunJS = class extends React.Component {
         const first = (tweets as any[]).find(t =>  t.entities && t.entities.media && t.entities.media.length)
         if (first) {
           const image = first.entities.media[0]
-          console.log(image)
           const url = `${image.media_url_https}?format=png&name=large`
           const ourImage:any = document.getElementById("background")
           ourImage.src = url
@@ -52,6 +51,7 @@ const Home = () => (
     </Head>
 
     <img id="background" src="" />
+    <p id="author">@cloudyconway</p>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch" />
     <RunJS />
@@ -70,8 +70,16 @@ const Home = () => (
         image-rendering: pixelated;
       }
 
-      div {
-        height: 100%;
+      p#author {
+        color: white;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 32px;
+        opacity: 0.7;
+        margin: 0;
+        padding: 0;
       }
     `}</style>
   </div>
